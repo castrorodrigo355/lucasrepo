@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { UserContext } from "./UserContext";
 
 export default function UserForm() {
-    const [user, setUser] = useState({name: "", course: ""})
-    const onChange = e => setUser({...user, [e.target.name]: e.target.value})
+
+    const [user, setUser] = useState({name: "", course: ""});
+    const onChange = e => setUser({...user, [e.target.name]: e.target.value});
+    
     return(
         <UserContext.Consumer>
             {

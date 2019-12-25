@@ -1,8 +1,22 @@
-import React from 'react';
-import { UserContext } from "./UserContext"
+import React, { useEffect, useContext } from 'react';
+import { UserContext } from "./UserContext";
+import UsersItem from "./UserItem";
 
 export default function UsersList() {
     
+    const { getUsers } = useContext(UserContext);
+    
+    useEffect(() => {
+        async function getAllUsers(){
+            await fetch("https://jsonplaceholder.typicode.com/users")
+            .then(res => res.json())
+            .then(response => getUsers(response))
+            .catch(error => console.log(error))
+        }
+
+        getAllUsers();
+    }, []);
+
     return(
         <UserContext.Consumer>
             {
@@ -13,7 +27,7 @@ export default function UsersList() {
                                 value.users.map((user, i) => {
                                     return(
                                         <div key={i}>
-    {user.name} - {user.course} - <button type="button" onClick={() => value.deleteUser(i)}>X</button>
+                                            <UsersItem user={user}/>
                                         </div>
                                     )
                                 })
