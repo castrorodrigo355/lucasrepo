@@ -24,3 +24,8 @@
 #mynav{
   background: black !important;
 }
+
+#mapContainer {
+  height: 100vh;
+  width: 100%;
+}

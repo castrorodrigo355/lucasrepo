@@ -1,29 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import Nav from "./components/Nav";
-import Form from "./components/Form";
-import Users from "./components/Users";
-import service from "./services/Service";
+import React from 'react';
+import { UserProvider } from "./UserContext";
+import UsersList from "./UsersList";
+import UserForm from "./UserForm";
+import UserNav from "./UserNav";
 import "./App.css";
 
-export default function App() {
-
-  const[users, setUsers] = useState([])
-
-  useEffect(async () => {
-    const users = await service.getUsers();
-    setUsers(users)
-  },[])
-
-  const onDeleteUser = idUser => setUsers(users.filter(user => user.id !== idUser))
-
+export default function App(){
   return (
-      <div style={{textAlign:"center"}}>
-        <Nav/>
-        <hr/>
-        <Form/>
-        <hr/>
-        <Users myUsers={users} onDeleteUser={onDeleteUser}/>
-        
+    <UserProvider>
+      <div className="App">
+        <UserNav/>
+        <UserForm/>
+        <UsersList/>
       </div>
+    </UserProvider>
   );
 }
