@@ -21,11 +21,9 @@
   color: #09d3ac;
 }
 
-#mynav{
-  background: black !important;
-}
-
-#mapContainer {
-  height: 100vh;
-  width: 100%;
+#myNav{
+  width:100;
+  height:40px;
+  color:white;
+  background:black
 }

@@ -3,6 +3,7 @@ import React, { useState, createContext } from 'react';
 export const UserContext = createContext();
 
 export function UserProvider(props) {
+
     const [users, setUsers] = useState([
         {id: 1, name: "james", course: "react"},
         {id: 2, name: "arthur", course: "angular"},
@@ -12,7 +13,15 @@ export function UserProvider(props) {
     ]);
 
     return (
-        <UserContext.Provider value={[users, setUsers]}>
+        <UserContext.Provider 
+            value = {
+                {   
+                    users, 
+                    message: "Hello Context",
+                    addUser: user => setUsers([...users, user]),
+                    deleteUser: idx => setUsers(users.filter((user, i) => i !== idx))
+                }
+            }>
             {props.children}
         </UserContext.Provider>
     )

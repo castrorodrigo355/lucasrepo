@@ -1,12 +1,20 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { UserContext } from "./UserContext";
+import "./App.css";
 
 export default function UserNav() {
-    const [users, setUsers] = useContext(UserContext)
-
+    
     return (
-        <div style={{width:"100%", height:"40px" , color:"white", backgroundColor:"black"}}>
-            <p>Users Quantity: { users.length }</p>
-        </div>
+        <UserContext.Consumer>
+            {
+                value => {
+                    return(
+                        <div>
+                            {"Users Quantity: " + value.users.length}
+                        </div>
+                    )
+                }
+            }
+        </UserContext.Consumer>
     )
 }

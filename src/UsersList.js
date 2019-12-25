@@ -1,21 +1,27 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { UserContext } from "./UserContext"
 
 export default function UsersList() {
-    const [users, setUsers] = useContext(UserContext)
-    const killUser = index => setUsers(users.filter((user, i) => i !== index))
-
-    return (
-        <div>
+    
+    return(
+        <UserContext.Consumer>
             {
-               users.map((user, i) => {
-                   return(
-                       <div key={i}>
-                        {user.name} - <button onClick={() => killUser(i)}>X</button>
-                       </div>
-                   )
-               }) 
+                value => {
+                    return(
+                        <div>
+                            {
+                                value.users.map((user, i) => {
+                                    return(
+                                        <div key={i}>
+    {user.name} - {user.course} - <button type="button" onClick={() => value.deleteUser(i)}>X</button>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                    )
+                }
             }
-        </div>
+        </UserContext.Consumer>
     )
 }
