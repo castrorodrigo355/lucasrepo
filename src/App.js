@@ -1,8 +1,10 @@
 import React from 'react';
 import { UserProvider } from "./UserContext";
+import UserNav from "./UserNav";
 import UsersList from "./UsersList";
 import UserForm from "./UserForm";
-import UserNav from "./UserNav";
+import SelectCities from "./SelectCities";
+import UserSqlQuery from "./UserSqlQuery";
 import "./App.css";
 
 export default function App(){
@@ -12,6 +14,8 @@ export default function App(){
         <UserNav/>
         <UserForm/>
         <UsersList/>
+        <SelectCities/>
+        <UserSqlQuery/>
       </div>
     </UserProvider>
   );

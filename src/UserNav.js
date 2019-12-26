@@ -18,16 +18,15 @@ export default function UserNav() {
                                 !checked ? 
                                 <div id="myNav" style={{background:"white"}}>
                                     {"Users Quantity: " + value.users.length}
-                                    <hr/>
                                     <ToggleButton checked={checked} onChange={changeToogle}/>
                                 </div>
                                 :
                                 <div id="myNav" style={{background:"black"}}>
                                     {"Users Quantity: " + value.users.length}
-                                    <hr/>
                                     <ToggleButton checked={checked} onChange={changeToogle}/>
                                 </div>
                             }
+                            <hr/>
                         </div>
                     )
                 }
