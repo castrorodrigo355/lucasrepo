@@ -1,10 +1,10 @@
 import React from 'react';
-import { UserProvider } from "./UserContext";
-import UserNav from "./UserNav";
-import UsersList from "./UsersList";
-import UserForm from "./UserForm";
-import SelectCities from "./SelectCities";
-import UserSqlQuery from "./UserSqlQuery";
+import { UserProvider } from "./context/UserContext";
+import UserNav from "./components/UserNav";
+import UsersList from "./components/UsersList";
+import UserForm from "./components/UserForm";
+import SelectCities from "./components/SelectOptions";
+import UserSqlQuery from "./components/UserSqlQuery";
 import "./App.css";
 
 export default function App(){

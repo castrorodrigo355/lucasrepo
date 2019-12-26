@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react';
-import { UserContext } from "./UserContext";
+import { UserContext } from "../context/UserContext";
 import UsersItem from "./UserItem";
 
 export default function UsersList() {
@@ -7,13 +7,7 @@ export default function UsersList() {
     const { getUsers } = useContext(UserContext);
     
     useEffect(() => {
-        async function getAllUsers(){
-            await fetch("https://jsonplaceholder.typicode.com/users")
-            .then(res => res.json())
-            .then(response => getUsers(response))
-            .catch(error => console.log(error))
-        }
-
+        async function getAllUsers(){ await getUsers() }
         getAllUsers();
     }, []);
 

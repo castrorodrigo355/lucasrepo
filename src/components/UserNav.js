@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { UserContext } from "./UserContext";
+import { UserContext } from "../context/UserContext";
 import { ToggleButton } from 'primereact/togglebutton';
-import "./App.css";
+import "../App.css";
 
 export default function UserNav() {
 
